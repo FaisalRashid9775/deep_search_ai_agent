@@ -6,11 +6,14 @@ from tools.user_info_tool import userInfo
 
 async def main():
     userInfo1 = userInfo("Ali", "Islamabad", "He is interested in Business")
-    result = await Runner.run(
+    result = Runner.run_streamed(
         main_agent,
-        """Which fical color is beter white or black. Give reponse on the basics of opion of people of indo-pak""",
+        """Electric car vs Disel Car. Which is better""",
         context=userInfo1
     )
+    async for event in result.stream_events():
+            if event.type == "raw_response_event" and isinstance(event.data, ResponseTextDeltaEvent):
+                print(event.data.delta, end="", flush=True)
     print(result.final_output)
 
 if __name__ == "__main__":
