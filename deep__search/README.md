@@ -143,7 +143,3 @@ my_uv_project/
 │── main.py        # Runner entrypoint
 │── README.md
 
-✅ Example Run (Console Output)
-searching for: Pros and cons of Agentic AI at work in 2025
-Final Report:
-Agentic AI at work in 2025 offers both opportunities and risks...
